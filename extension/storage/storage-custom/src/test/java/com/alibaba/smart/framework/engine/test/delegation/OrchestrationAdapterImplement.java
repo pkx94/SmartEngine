@@ -14,6 +14,7 @@ public class OrchestrationAdapterImplement implements  OrchestrationAdapter {
 
      @Override
      public void execute(Map<String, Object> request, Map<String, Object> response) {
+          System.out.println("executor task");
           counter.addAndGet(1L);
      }
 }

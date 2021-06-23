@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:smart="http://smartengine.org/schema/process" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="smart">
+  <process id="Process_1" isExecutable="false">
+    <startEvent id="StartEvent_1">
+      <extensionElements>
+        <smart:properties>
+          <smart:value />
+        </smart:properties>
+      </extensionElements>
+    </startEvent>
+    <serviceTask id="ServiceTask_16gpr5f" name="601" smart:class="com.alibaba.smart.framework.engine.test.delegation.SalePreJavaDelegation">
+      <extensionElements>
+        <smart:properties>
+          <smart:value name="runDate" value="2020-06-01 00:00:00" />
+        </smart:properties>
+      </extensionElements>
+    </serviceTask>
+    <serviceTask id="ServiceTask_019vj1s" name="618" smart:class="com.alibaba.smart.framework.engine.test.delegation.SaleOnJavaDelegation">
+      <extensionElements>
+        <smart:properties>
+          <smart:value name="runDate" value="2020-06-18 00:00:00" />
+        </smart:properties>
+      </extensionElements>
+    </serviceTask>
+    <endEvent id="EndEvent_1jq1v5y" />
+    <sequenceFlow id="SequenceFlow_1ju0syv" sourceRef="StartEvent_1" targetRef="ServiceTask_16gpr5f" />
+    <sequenceFlow id="SequenceFlow_15zj0nq" sourceRef="ServiceTask_16gpr5f" targetRef="ServiceTask_019vj1s" />
+    <sequenceFlow id="SequenceFlow_0h7khgq" sourceRef="ServiceTask_019vj1s" targetRef="EndEvent_1jq1v5y" />
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_1">
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="80" y="249" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="53" y="285" width="90" height="20" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_16gpr5f_di" bpmnElement="ServiceTask_16gpr5f">
+        <dc:Bounds x="208" y="227" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_019vj1s_di" bpmnElement="ServiceTask_019vj1s">
+        <dc:Bounds x="430" y="227" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1jq1v5y_di" bpmnElement="EndEvent_1jq1v5y">
+        <dc:Bounds x="650" y="249" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="668" y="288" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ju0syv_di" bpmnElement="SequenceFlow_1ju0syv">
+        <di:waypoint type="dc:Point" x="116" y="267" />
+        <di:waypoint type="dc:Point" x="162" y="267" />
+        <di:waypoint type="dc:Point" x="162" y="267" />
+        <di:waypoint type="dc:Point" x="208" y="267" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="177" y="260.5" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_15zj0nq_di" bpmnElement="SequenceFlow_15zj0nq">
+        <di:waypoint type="dc:Point" x="308" y="267" />
+        <di:waypoint type="dc:Point" x="430" y="267" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="369" y="245" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0h7khgq_di" bpmnElement="SequenceFlow_0h7khgq">
+        <di:waypoint type="dc:Point" x="530" y="267" />
+        <di:waypoint type="dc:Point" x="650" y="267" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="590" y="245" width="0" height="13" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

@@ -32,6 +32,7 @@ public class SmartPropertiesTest extends CustomBaseTestCase {
         ProcessInstance processInstance = processCommandService.start(
             processDefinition.getId(), processDefinition.getVersion(), request,response
         );
+        System.out.println(response);
         Assert.assertNotNull(processInstance);
         Assert.assertTrue(processInstance.getStatus().equals(InstanceStatus.completed));
 
