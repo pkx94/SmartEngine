@@ -2,6 +2,8 @@ package com.alibaba.smart.framework.engine.test.delegation;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Map;
 
@@ -29,14 +31,10 @@ public class SaleOnJavaDelegation implements JavaDelegation {
         Map map = (Map)extensionElements.getDecorationMap().get(ExtensionElementsConstant.PROPERTIES);
         String runTime = (String)map.get("runDate");
         if(StringUtil.isNotEmpty(runTime)){
-            try {
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                Date date = simpleDateFormat.parse(runTime);
-                if(DateUtil.getCurrentDate().compareTo(date) > 0){
-                    System.out.println("发送通知: 可以开始大促正式开始啦！！！");
-                }
-            } catch (ParseException e) {
-                e.printStackTrace();
+            LocalDateTime localDateTime = LocalDateTime.now();
+            LocalDateTime runDate = LocalDateTime.parse(runTime, DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+            if (localDateTime.compareTo(runDate) > 0) {
+                System.out.println("发送通知: 可以开始大促上半周准备了！！！");
             }
         }
     }
